@@ -18,7 +18,7 @@ def normalize_phone(num: str) -> str:
     else:
         return None
 
-
+# Example usage:
 raw_numbers = [
     "067\\t123 4567",
     "(095) 234-5678\\n",
@@ -32,4 +32,4 @@ raw_numbers = [
 ]
 
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
-print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
+print("Normalized phone numbers:", sanitized_numbers)

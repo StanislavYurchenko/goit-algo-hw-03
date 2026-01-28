@@ -16,11 +16,13 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
         max = int(max)
         quantity = int(quantity)
     except ValueError:
-        raise ValueError("All parameters must be integers.")
+        print("All parameters must be integers.")
+        return []
         
 
     if quantity > (max - min + 1) or min < 1 or max > 1000:
-        raise ValueError("Quantity exceeds the range of unique numbers available. min must be >= 1 and max must be <= 1000.")
+        print("Quantity exceeds the range of unique numbers available. min must be >= 1 and max must be <= 1000.")
+        return []
 
     return sorted(random.sample(range(min, max + 1), quantity))
 

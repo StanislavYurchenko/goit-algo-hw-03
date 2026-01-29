@@ -13,7 +13,7 @@ def normalize_phone(num: str) -> str:
     
     if len(cleaned) == 9:
         return f"+380{cleaned}"
-    if len(cleaned) == 10 and cleaned.startswith("0"):
+    if len(cleaned) == 10:
         return f"+38{cleaned}"
     elif len(cleaned) == 12:
         return f"+{cleaned}"

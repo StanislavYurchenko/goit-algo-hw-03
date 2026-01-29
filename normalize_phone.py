@@ -11,9 +11,11 @@ def normalize_phone(num: str) -> str:
 
     cleaned = re.sub(r'\D', '', num)
     
-    if len(cleaned) == 10:
+    if len(cleaned) == 9:
         return f"+380{cleaned}"
-    elif len(cleaned) == 12 and cleaned.startswith("380"):
+    if len(cleaned) == 10 and cleaned.startswith("0"):
+        return f"+38{cleaned}"
+    elif len(cleaned) == 12:
         return f"+{cleaned}"
     else:
         return None
@@ -29,6 +31,16 @@ raw_numbers = [
     "(050)8889900",
     "38050-111-22-22",
     "38050 111 22 11   ",
+    "067\t123 4567",
+    "(095) 123-4567\n",
+    "+380 44 123 4567",
+    "380501234567",
+    "+38(050)123-45-67",
+    "0501234567",
+    "(050)1234567",
+    "38050-123-45-67",
+    "38050 123 45 67",
+    "+432 10 123 45 67"
 ]
 
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
